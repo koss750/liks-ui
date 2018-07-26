@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DoclistComponent } from './doclist/doclist.component';
+import { DocserviceService } from './docservice.service';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { DoclistComponent } from './doclist/doclist.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [DocserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
