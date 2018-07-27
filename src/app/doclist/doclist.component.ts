@@ -9,11 +9,11 @@ import {DocService} from '../doc.service';
 export class DoclistComponent implements OnInit {
 
   public name = 'username';
-  public docs = [];
+  public docs;
   constructor(private _docservice: DocService) { }
 
   ngOnInit() {
-    this.docs = this._docservice.getDocs();
+    this._docservice.getDocs().subscribe((data) => this.docs = data);
   }
 
 }

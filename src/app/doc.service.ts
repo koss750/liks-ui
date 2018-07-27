@@ -1,17 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DocService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
+  configUrl = 'assets/docs.txt';
   getDocs() {
-      return [
-          {'type': 'passport', 'number': '554776797'},
-          {'type': 'passport', 'number': '525049274'}
-      ];
+      return this.http.get(this.configUrl);
   }
 
 }
