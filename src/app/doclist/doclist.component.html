@@ -1,10 +1,10 @@
 <p>
   Documents for {{name}}
 </p>
-  <table>
+  <table class="table table-striped">
   <tr>
-    <td>Document Type</td>
-    <td>Document Number</td>
+    <th scope="col">Document Type</th>
+    <th scope="col">Document Number</th>
   </tr>
   <tr *ngFor="let doc of docs">
     <td>{{doc.type}}</td>
