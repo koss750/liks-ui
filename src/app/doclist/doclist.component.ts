@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DocserviceService} from '../docservice.service';
+import {DocService} from '../doc.service';
 
 @Component({
   selector: 'app-doclist',
@@ -10,7 +10,7 @@ export class DoclistComponent implements OnInit {
 
   public name = 'username';
   public docs = [];
-  constructor(private _docservice: DocserviceService) { }
+  constructor(private _docservice: DocService) { }
 
   ngOnInit() {
     this.docs = this._docservice.getDocs();
