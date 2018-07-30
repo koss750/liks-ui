@@ -1,18 +1,29 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from './login/login.component';
+import { ModuleWithProviders } from '@angular/core';
+import { DoclistComponent} from './doclist/doclist.component';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 const routes: Routes = [
     {
-        path: 'login',
+        path: '',
+        redirectTo: 'sign-in',
+        pathMatch: 'full'
+    },
+    {
+        path: 'sign-in',
         component: LoginComponent
     },
+    {
+        path: 'docs',
+        component: DoclistComponent
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
+    }
 ];
 
-@NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
-    providers: []
-})
-export class AppRoutingModule {
-}
+export const RoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
+

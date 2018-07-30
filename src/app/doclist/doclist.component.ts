@@ -14,6 +14,6 @@ export class DoclistComponent implements OnInit {
 
   ngOnInit() {
     console.log('start');
-    this._docservice.getMyDocs(this.user_id).subscribe((data) => this.docs = (data.results.data));
+    this._docservice.getMyDocs(this.user_id).subscribe((data) => this.docs = (data));
   }
 }
