@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SessionService } from './session.service';
-import { map } from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-import {parseHttpResponse} from 'selenium-webdriver/http';
+import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -10,20 +9,18 @@ export class AuthService {
     constructor(
         private session: SessionService,
         private http: HttpClient,
+        private router: Router
     ) {
     }
     private response;
 
     public isSignedIn() {
+        console.log(!!this.session.accessToken);
         return !!this.session.accessToken;
     }
 
     public doSignOut() {
         this.session.destroy();
-    }
-
-    public login(username: string, password: string) {
-        return this.http.post(`http://liks.test/api/auth/login`, { email: username, password: password });
     }
 
     public signIn(email: string, password: string) {
@@ -45,6 +42,7 @@ export class AuthService {
         }
         this.session.accessToken = accessToken;
         this.session.name = name;
+        this.router.navigate(['docs']);
         console.log(this.session);
     }
 

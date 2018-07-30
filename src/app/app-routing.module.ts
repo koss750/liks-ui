@@ -1,8 +1,11 @@
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { DoclistComponent} from './doclist/doclist.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DoclistResolver } from './doclist/doclist.resolver';
+import { AccessGuard } from './access.guard';
 
 
 const routes: Routes = [
@@ -17,7 +20,13 @@ const routes: Routes = [
     },
     {
         path: 'docs',
-        component: DoclistComponent
+        component: DoclistComponent,
+        canActivate: [
+            AccessGuard
+        ],
+        resolve: {
+            docs: DoclistResolver
+        }
     },
     {
         path: '**',
@@ -25,5 +34,14 @@ const routes: Routes = [
     }
 ];
 
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+    providers: [
+        AccessGuard,
+        DoclistResolver
+    ]
+})
+export class AppRoutingModule {}
 export const RoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
 

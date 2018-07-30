@@ -5,9 +5,14 @@
   <tr>
     <th scope="col">Document Type</th>
     <th scope="col">Document Number</th>
+    <th scope="col">Link</th>
   </tr>
+    <div *ngIf="!docs.length">
+      You currently do not have any docs uploaded yet.
+    </div>
   <tr *ngFor="let doc of docs">
     <td>{{doc.type}}</td>
     <td>{{doc.number}}</td>
+    <td>{{doc.link}}</td>
   </tr>
   </table>

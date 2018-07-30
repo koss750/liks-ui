@@ -11,6 +11,8 @@ import { RoutingModule } from './app-routing.module';
 import {AuthService} from './auth.service';
 import {SessionService} from './session.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {DoclistResolver} from './doclist/doclist.resolver';
+import {AccessGuard} from './access.guard';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     RoutingModule
   ],
-  providers: [DocService, AuthService, SessionService],
+  providers: [
+      DocService,
+      AuthService,
+      SessionService,
+      DoclistResolver,
+      AccessGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
