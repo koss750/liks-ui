@@ -13,13 +13,15 @@ import {SessionService} from './session.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {DoclistResolver} from './doclist/doclist.resolver';
 import {AccessGuard} from './access.guard';
+import { TravelComponent } from './travel/travel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DoclistComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TravelComponent
   ],
   imports: [
     BrowserModule,

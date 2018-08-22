@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DocService } from '../doc.service';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { SessionService} from '../session.service';
 
 @Component({
   selector: 'app-doclist',
@@ -9,15 +10,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./doclist.component.css'],
 })
 export class DoclistComponent implements OnInit {
-  public user_id = 2;
-  public name = 'username';
-  public docs;
 
     constructor(
         private docService: DocService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private sessionService: SessionService
     ) {
     }
+  public user_id = 2;
+  public user = JSON.parse(localStorage.getItem('session'));
+  public username = this.user.user_name;
+  public docs;
 
   ngOnInit() {
     console.log('doclist.component.ts');

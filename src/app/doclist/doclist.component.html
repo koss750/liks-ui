@@ -1,5 +1,5 @@
 <p>
-  Documents for {{name}}
+  Documents for {{username}}
 </p>
   <table class="table table-striped">
   <tr>
@@ -11,7 +11,7 @@
       You currently do not have any docs uploaded yet.
     </div>
   <tr *ngFor="let doc of docs">
-    <td>{{doc.type}}</td>
+    <td>{{doc.type}} ({{doc.issued_by_code}})</td>
     <td>{{doc.number}}</td>
     <td>{{doc.link}}</td>
   </tr>

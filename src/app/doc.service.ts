@@ -5,29 +5,15 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Doc } from './doc';
 import {map} from 'rxjs/operators';
+import {ApiService} from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DocService {
-
-  constructor(
-      private http: HttpClient,
-      private session: SessionService,
-  ) { }
-  docs: Doc[] = [];
-  api_response;
-  configUrl = 'http://liks.test';
-  fullUrl = this.configUrl;
-
-    private getRequestOptions() {
-        const bearer = 'Bearer ' + this.session.accessToken;
-        return ({ 'Authorization': bearer
-        });
-    }
+export class DocService extends ApiService {
 
   getDocs(): Observable<Doc[]> {
-    this.fullUrl = this.configUrl + '/documents';
+    this.fullUrl = this.configUrl + '/documents/' + this.session.user_id;
     const options = this.getRequestOptions();
     return this.http
         .get(this.fullUrl,

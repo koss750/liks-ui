@@ -49,6 +49,9 @@ export class LoginComponent implements OnInit {
 
         // Submit request to API
         this.auth.signIn(username, password);
+        // Reset status
+        this.isBusy = false;
+        this.hasFailed = true;
     }
 
 }

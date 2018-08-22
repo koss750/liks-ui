@@ -8,9 +8,16 @@ export class SessionService {
 
     public accessToken: string;
     public name: string;
-    public user;
+    public user_id: number;
+    public user_name: string;
+    public cookie: any;
 
     constructor() {
+        this.cookie = JSON.parse(localStorage.getItem('session'));
+        this.accessToken = this.cookie.accessToken;
+        this.name = this.cookie.name;
+        this.user_name = this.cookie.user_name;
+        this.user_id = this.cookie.user_id;
     }
 
     public getRequestOptions() {
@@ -28,6 +35,7 @@ export class SessionService {
     public destroy(): void {
         this.accessToken = null;
         this.name = null;
-        this.user = null;
+        this.user_id = null;
+        this.user_name = null;
     }
 }
