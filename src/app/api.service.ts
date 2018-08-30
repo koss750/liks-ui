@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SessionService } from './session.service';
-import { Observable } from 'rxjs';
-import { Doc } from './doc';
-import {map} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'

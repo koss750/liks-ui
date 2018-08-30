@@ -52,7 +52,7 @@ export class AuthService {
         this.session.user_name = user_name;
         this.session.user_id = user_id;
         localStorage.setItem('session', JSON.stringify(this.session));
-        this.router.navigate(['docs']);
+        this.router.navigate(['travel']);
     }
 
 }

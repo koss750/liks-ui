@@ -13,8 +13,7 @@ export class DoclistComponent implements OnInit {
 
     constructor(
         private docService: DocService,
-        private route: ActivatedRoute,
-        private sessionService: SessionService
+        private route: ActivatedRoute
     ) {
     }
   public user_id = 2;
@@ -23,7 +22,6 @@ export class DoclistComponent implements OnInit {
   public docs;
 
   ngOnInit() {
-    console.log('doclist.component.ts');
       this.route.data
           .pipe(
               map((data) => data['docs'])

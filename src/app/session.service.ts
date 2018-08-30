@@ -14,10 +14,12 @@ export class SessionService {
 
     constructor() {
         this.cookie = JSON.parse(localStorage.getItem('session'));
-        this.accessToken = this.cookie.accessToken;
-        this.name = this.cookie.name;
-        this.user_name = this.cookie.user_name;
-        this.user_id = this.cookie.user_id;
+        if (this.cookie) {
+            this.accessToken = this.cookie.accessToken;
+            this.name = this.cookie.name;
+            this.user_name = this.cookie.user_name;
+            this.user_id = this.cookie.user_id;
+        }
     }
 
     public getRequestOptions() {

@@ -1,0 +1,68 @@
+<div class="row text-center">
+    <div class="col-12 text-center">
+        <h4>Travel</h4>
+    </div>
+</div>
+<div class="row text-center" id="accordion" *ngIf="programmes.length">
+
+    <div class="col-6" *ngFor="let p of programmes">
+        <div class="card">
+            <div class="card-header bg-white" id="headingOne">
+                <h5 class="mb-0">
+                    <h4 class="panel-title">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img src="https://www.countryflags.io/{{p.main_flag_code}}/shiny/32.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{p.id}}">
+                                <img class="card-img-top" src="../../assets/{{p.reference}}.jpg"/>
+                            </a>
+                        </div>
+                    </h4>
+                </h5>
+            </div>
+
+            <div id="collapse{{p.id}}" class="panel-collapse collapse in">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              id="inputGroup-sizing-default1">{{p.destination}}</span>
+                                </div>
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                              id="inputGroup-sizing-default2">{{p.length}} days</span>
+                                </div>
+                                <div class="input-group-append">
+                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                       id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        Report
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 margin_10-exl">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

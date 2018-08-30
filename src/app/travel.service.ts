@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { SessionService } from './session.service';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs';
-import { Doc } from './doc';
+import { Programme } from './programme';
 import {map} from 'rxjs/operators';
 import {ApiService} from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DocService extends ApiService {
+export class TravelService extends ApiService {
 
-  getDocs(): Observable<Doc[]> {
-    this.fullUrl = this.configUrl + '/documents/' + this.session.user_id;
+    getProgrammes(): Observable<Programme[]> {
+    this.fullUrl = this.configUrl + '/programmes';
     const options = this.getRequestOptions();
     return this.http
         .get(this.fullUrl,
@@ -22,8 +19,8 @@ export class DocService extends ApiService {
         .pipe(
             map(response => {
               const api_response = <any> response;
-              const docs = api_response.results.data;
-              return docs.map((doc) => new Doc(doc));
+              const programmes = api_response.results.data;
+              return programmes.map((programme) => new Programme(programme));
             })
         );
   }

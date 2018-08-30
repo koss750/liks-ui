@@ -14,6 +14,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {DoclistResolver} from './doclist/doclist.resolver';
 import {AccessGuard} from './access.guard';
 import { TravelComponent } from './travel/travel.component';
+import {TravelResolver} from './travel/travel.resolver';
+import {TravelService} from './travel.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { TravelComponent } from './travel/travel.component';
       SessionService,
       DoclistResolver,
       AccessGuard,
+      TravelResolver,
+      TravelService
   ],
   bootstrap: [AppComponent]
 })

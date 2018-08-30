@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+.margin_10 {
+    margin:10px;
+}
+
+.margin_10-exl {
+    margin:10px;
+    margin-left:0px;
+}

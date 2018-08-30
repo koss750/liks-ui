@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { DoclistComponent} from './doclist/doclist.component';
+import { TravelComponent } from './travel/travel.component';
+import { TravelResolver } from './travel/travel.resolver';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DoclistResolver } from './doclist/doclist.resolver';
@@ -26,6 +28,16 @@ const routes: Routes = [
         ],
         resolve: {
             docs: DoclistResolver
+        }
+    },
+    {
+        path: 'travel',
+        component: TravelComponent,
+        canActivate: [
+            AccessGuard
+        ],
+        resolve: {
+            programmes: TravelResolver
         }
     },
     {
